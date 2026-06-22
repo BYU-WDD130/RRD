@@ -82,11 +82,14 @@ function switchView(targetViewId) {
 }
 
 
-// INICIALIZACIÓN DE EVENTOS (Unificado y Corregido)
+// INICIALIZACIÓN DE EVENTOS (Asegúrate de que vaya al final de tu script.js)
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Asignar los eventos de clic a la barra de navegación para SPA
     const navLinks = document.querySelectorAll('.nav-link');
+    const menuToggle = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
+
+    // 1. Asignar los eventos de clic a la barra de navegación para SPA
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -95,18 +98,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 2. CONTROL DEL MENÚ HAMBURGUESA EN MÓVILES
-    const menuToggle = document.getElementById('mobile-menu');
-    const navMenu = document.querySelector('.nav-menu');
-
-    // Nos aseguramos de que los elementos existan antes de asignar el evento
+    // 2. CONTROL DEL MENÚ HAMBURGUESA
     if (menuToggle && navMenu) {
-        
-        // Abre y cierra el menú al hacer clic en las 3 líneas
-        menuToggle.addEventListener('click', () => {
+        // Abre y cierra el menú al hacer clic en el botón
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation(); // Evita que el clic se propague
             navMenu.classList.toggle('mobile-active');
             
-            // Cambia el icono de barras (☰) a una equis (✕) cuando está abierto
+            // Cambia el icono de barras (☰) a una equis (✕)
             const icon = menuToggle.querySelector('i');
             if (navMenu.classList.contains('mobile-active')) {
                 icon.className = 'fas fa-times';
@@ -115,13 +114,22 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Cierra el menú automáticamente cuando el usuario toca una sección
+        // Cierra el menú automáticamente si el usuario hace clic en cualquier enlace
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('mobile-active');
                 const icon = menuToggle.querySelector('i');
                 if (icon) icon.className = 'fas fa-bars';
             });
+        });
+
+        // Cierra el menú si hacen clic en cualquier parte fuera de él
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                navMenu.classList.remove('mobile-active');
+                const icon = menuToggle.querySelector('i');
+                if (icon) icon.className = 'fas fa-bars';
+            }
         });
     }
 });
