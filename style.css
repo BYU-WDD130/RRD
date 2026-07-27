@@ -445,37 +445,46 @@ footer {
     font-size: 0.9rem;
     color: #888;
 }
-/* ==========================================
-   Contenedor y Video de la Sección Proceso
-   ========================================== */
 
+/* Contenedor principal para la cuadrícula (Grid Layout) */
+.process-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* Contenedor del video */
 .process-video {
     position: relative;
     width: 100%;
-    max-width: 550px; /* Tamaño ideal responsivo */
-    border-radius: 16px; /* Coincide con las tarjetas de la web */
+    border-radius: 16px; /* Mismo radio de borde del sitio */
     overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12); /* Sombra suave y limpia */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Sombra idéntica a las tarjetas */
     background-color: #000;
+    aspect-ratio: 4 / 3; /* Mantiene la proporción de la imagen original */
 }
 
 /* Ajuste del elemento <video> */
 .process-video video {
-    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
     border-radius: 16px;
 }
 
-/* Capa flotante (Play Overlay) */
+/* Capa del botón Play (Overlay) */
 .play-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.25); /* Oscurece ligeramente la imagen poster */
+    background: rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -483,34 +492,39 @@ footer {
     transition: background 0.3s ease;
 }
 
-/* Efecto hover sobre la capa */
 .play-overlay:hover {
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.35);
 }
 
-/* Botón circular con icono Play */
+/* Icono de Play estilizado */
 .play-overlay i {
-    width: 70px;
-    height: 70px;
+    width: 65px;
+    height: 65px;
     background-color: #ffffff;
-    color: #6b1d2f; /* Tono vinotinto matching con la paleta */
+    color: #5c061c; /* Tono vinotinto/borgoña exacto del título Red Rose */
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.6rem;
-    padding-left: 4px; /* Centra el icono geométricamente */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    font-size: 1.5rem;
+    padding-left: 3px; /* Centrado óptico del icono */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Efecto al pasar el mouse por encima del botón */
 .play-overlay:hover i {
-    transform: scale(1.12);
-    background-color: #6b1d2f;
+    transform: scale(1.1);
+    background-color: #5c061c;
     color: #ffffff;
 }
 
+/* Adaptación para pantallas móviles */
+@media (max-width: 768px) {
+    .process-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
 
 /* ==========================================================================
    DISEÑO RESPONSIVE Y MÓVIL (Totalmente Corregido)
