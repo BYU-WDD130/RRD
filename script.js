@@ -81,33 +81,7 @@ function switchView(targetViewId) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const video = document.getElementById('processVideo');
-    const playOverlay = document.getElementById('playOverlay');
 
-    if (video && playOverlay) {
-        // Al hacer clic en el botón de Play/Overlay
-        playOverlay.addEventListener('click', () => {
-            video.play();
-            playOverlay.style.display = 'none'; // Oculta el botón flotante al reproducir
-        });
-
-        // Si el usuario pausa el video desde los controles nativos
-        video.addEventListener('pause', () => {
-            playOverlay.style.display = 'flex'; // Vuelve a mostrar el botón
-        });
-
-        // Si el video termina
-        video.addEventListener('ended', () => {
-            playOverlay.style.display = 'flex'; // Vuelve a mostrar el botón
-        });
-
-        // Si el usuario le da play desde los controles nativos del video
-        video.addEventListener('play', () => {
-            playOverlay.style.display = 'none';
-        });
-    }
-}); 
 // INICIALIZACIÓN DE EVENTOS (Asegúrate de que vaya al final de tu script.js)
 document.addEventListener('DOMContentLoaded', () => {
     
@@ -123,6 +97,8 @@ document.addEventListener('DOMContentLoaded', () => {
             switchView(target);
         });
     });
+
+
 
     // 2. CONTROL DEL MENÚ HAMBURGUESA
     if (menuToggle && navMenu) {

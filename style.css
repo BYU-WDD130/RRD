@@ -56,7 +56,7 @@ header {
 }
 
 .logo-img {
-    height: 60px;
+    height: 180px;
     width: auto;
     display: block;
     transition: transform 0.3s ease;
@@ -490,6 +490,7 @@ footer {
     align-items: center;
     cursor: pointer;
     transition: background 0.3s ease;
+    pointer-events: none;
 }
 
 .play-overlay:hover {
@@ -498,18 +499,8 @@ footer {
 
 /* Icono de Play estilizado */
 .play-overlay i {
-    width: 65px;
-    height: 65px;
-    background-color: #ffffff;
-    color: #5c061c; /* Tono vinotinto/borgoña exacto del título Red Rose */
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    padding-left: 3px; /* Centrado óptico del icono */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    display: none; 
+
 }
 
 .play-overlay:hover i {
