@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Red Rose Desserts | Repostería Artesanal</title>
+    <!-- ASEGÚRATE DE QUE EL NOMBRE DE TU ARCHIVO CSS COINCIDA EXACTAMENTE AQUÍ (style.css o styles.css) -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -22,11 +23,12 @@
             <i class="fas fa-bars"></i>
         </button>
 
+        <!-- Corregido: Removido el id=".nav-menu" ambiguo -->
         <nav class="nav-menu">
-<a href="#" class="nav-link active" data-target="home" onclick="switchView('home')">Inicio</a>
-    <a href="#" class="nav-link" data-target="menu" onclick="switchView('menu')">Menú</a>
-    <a href="#" class="nav-link" data-target="nosotros" onclick="switchView('nosotros')">Nosotros</a>
-    <a href="#" class="nav-link" data-target="contacto" onclick="switchView('contacto')">Contacto</a>
+            <a href="#" class="nav-link active" data-target="home">Inicio</a>
+            <a href="#" class="nav-link" data-target="menu">Menú</a>
+            <a href="#" class="nav-link" data-target="nosotros">Nosotros</a>
+            <a href="#" class="nav-link" data-target="contacto">Contacto</a>
             <a href="#" class="btn-order mobile-only-btn" onclick="switchView('contacto')">Pedir Ahora</a>
         </nav>
         
@@ -36,260 +38,348 @@
     </div>
 </header>
 
-    <main id="main-content">
-        <section id="home-view" class="page-view active">
-            
-            <section class="hero">
-                <div class="hero-content">
-                    <span class="hero-subtitle">Hecho a mano con amor</span>
-                    <h1>Dulzura elegante en cada bocado</h1>
-                    <p>Transformamos ingredientes de alta calidad en obras de arte comestibles para tus momentos más especiales.</p>
-                    <div class="hero-buttons">
-                        <button class="btn-primary" onclick="switchView('menu')">Explorar Menú</button>
-                        <button class="btn-secondary" onclick="switchView('contacto')">Orden Personalizada</button>
-                    </div>
+<main id="main-content">
+    <!-- VISTA INICIO -->
+    <section id="home-view" class="page-view active">
+        <section class="hero">
+            <div class="hero-content">
+                <span class="hero-subtitle">Hecho a mano con amor</span>
+                <h1>Dulzura elegante en cada bocado</h1>
+                <p>Transformamos ingredientes de alta calidad en obras de arte comestibles para tus momentos más especiales.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="switchView('menu')">Explorar Menú</button>
+                    <button class="btn-secondary" onclick="switchView('contacto')">Orden Personalizada</button>
                 </div>
-                <div class="hero-image">
-                    <img src="images/Principal.webp" alt="Postre Destacado Red Rose">
-                </div>
-            </section>
+            </div>
+            <div class="hero-image">
+                <img src="images/Principal.webp" alt="Postre Destacado Red Rose">
+            </div>
+        </section>
 
-            <section class="favorites-section">
-                <div class="section-title">
-                    <span>Los consentidos</span>
-                    <h2>Favoritos de los Clientes</h2>
-                    <div class="divider"></div>
+        <section class="favorites-section">
+            <div class="section-title">
+                <span>Los consentidos</span>
+                <h2>Favoritos de los Clientes</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="grid-products">
+                <div class="product-card">
+                    <div class="badge">Top</div>
+                    <img src="images/chocoflan1.webp" alt="Rose Mousse">
+                    <h3>Mini-Chocoflan</h3>
+                    <p>Delicado flan de chocolate con crema batida y fruta de temporada.</p>
+                    <span class="price">$65.00</span>
                 </div>
-                <div class="grid-products">
-                    <div class="product-card">
-                        <div class="badge">Top</div>
-                        <img src="images/chocoflan1.webp" alt="Rose Mousse">
-                        <h3>Mini-Chocoflan</h3>
-                        <p>Delicado flan de chocolate con crema batida y fruta de temporada.</p>
-                        <span class="price">$10.00</span>
-                    </div>
-                    <div class="product-card">
-                        <img src="images/IMG-20250805-WA0018.jpg" alt="Blueberry Slice">
-                        <h3>Pastel de Arándanos</h3>
-                        <p>Bizcocho suave de vainilla intercalado con crema premium y arándanos frescos.</p>
-                        <span class="price">$9.99</span>
-                    </div>
-                    <div class="product-card">
-                        <img src="images/cooldcake.jpg" alt="Gelatina Artística">
-                        <h3>Mini-Pastel de Gelatina y frutas</h3>
-                        <p>Nuestra especialidad: gelatina artística encapsulada con frutas de temporada.</p>
-                        <span class="price">$45.00</span>
-                    </div>
+                <div class="product-card">
+                    <img src="images/IMG-20250805-WA0018.jpg" alt="Blueberry Slice">
+                    <h3>Pastel de Arándanos</h3>
+                    <p>Bizcocho suave de vainilla intercalado con crema premium y arándanos frescos.</p>
+                    <span class="price">$50.00</span>
                 </div>
-            </section>
+                <div class="product-card">
+                    <img src="images/cooldcake.jpg" alt="Gelatina Artística">
+                    <h3>Mini-Pastel de Gelatina y frutas</h3>
+                    <p>Nuestra especialidad: gelatina artística encapsulada con frutas de temporada.</p>
+                    <span class="price">$45.00</span>
+                </div>
+            </div>
+        </section>
 
-            <section class="seasonal-section">
-                <div class="seasonal-banner">
-                    <div class="seasonal-content">
-                        <span class="season-badge">Edición Limitada</span>
-                        <h2>Especiales de Otoño</h2>
-                        <p>Disfruta de nuestro exclusivo <strong>Pumpkin Cake</strong> y delicias infusionadas con especias cálidas de la estación. ¡Disponibles solo por este mes!</p>
-                        <button class="btn-gold" onclick="switchView('menu')">Ver Temporada</button>
+        <section class="seasonal-section">
+            <div class="seasonal-banner">
+                <div class="seasonal-content">
+                    <span class="season-badge">Edición Limitada</span>
+                    <h2>Especiales de Otoño</h2>
+                    <p>Disfruta de nuestro exclusivo <strong>Pumpkin Cake</strong> y delicias infusionadas con especias cálidas de la estación. ¡Disponibles solo por este mes!</p>
+                    <button class="btn-gold" onclick="switchView('menu')">Ver Temporada</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="process-section">
+            <div class="section-title">
+                <span>Detrás de escena</span>
+                <h2>Así es como lo hacemos</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="process-container">
+                <div class="process-video">
+                    <video id="processVideo" poster="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80" controls>
+                        <source src="images/jely-video.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de video.
+                    </video>
+                    <div class="play-overlay" id="playOverlay">
+                        <i class="fas fa-play"></i>
                     </div>
                 </div>
-            </section>
 
-            <section class="process-section">
-                <div class="section-title">
-                    <span>Detrás de escena</span>
-                    <h2>Así es como lo hacemos</h2>
-                    <div class="divider"></div>
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-number">01</div>
+                        <div class="step-text">
+                            <h3>Selección de Ingredientes</h3>
+                            <p>Solo utilizamos frutas frescas del día, chocolates finos e ingredientes 100% orgánicos.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">02</div>
+                        <div class="step-text">
+                            <h3>Diseño y Horneado</h3>
+                            <p>Cada postre se hornea en lotes pequeños para garantizar la máxima frescura y textura perfecta.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">03</div>
+                        <div class="step-text">
+                            <h3>Decoración a Mano</h3>
+                            <p>Nuestros reposteros decoran cada pieza individualmente, convirtiéndola en algo único.</p>
+                        </div>
+                    </div>
                 </div>
-<div class="process-container">
-    <div class="process-video">
-        <video 
-            id="processVideo"
-            poster="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80" 
-            controls>
-            <source src="images/jely-video.mp4" type="video/mp4">
-            Tu navegador no soporta la reproducción de video.
-        </video>
-        <div class="play-overlay" id="playOverlay">
-            <i class="fas fa-play"></i>
+            </div>
+        </section>
+
+        <section class="testimonials-section">
+            <div class="section-title">
+                <span>Comunidad Red Rose</span>
+                <h2>Lo que dicen nuestros clientes</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="testimonials-container">
+                <div class="testimonial-card active">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="comment">"¡El Rose Mousse fue el éxito total en mi cumpleaños! No solo lucía espectacular, el sabor era sutil y nada empalagoso. 10/10 recomendado."</p>
+                    <h4 class="client-name">- María Fernández</h4>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- VISTA MENÚ (Unificada) -->
+<section id="menu-view" class="page-view">
+    <div class="container">
+        <div class="section-title">
+            <span>Nuestra Carta</span>
+            <h2>Nuestro Menú Completo</h2>
+            <div class="divider"></div>
+            <p class="menu-intro-text">
+                Explora todas nuestras delicias artesanales elaboradas a mano, disponibles para entrega local y pedidos personalizados.
+            </p>
+        </div>
+
+        <div class="menu-grid">
+            <!-- Card 1 -->
+            <div class="menu-card">
+                <div class="menu-card-badge">Popular</div>
+                <div class="menu-card-img">
+                    <img src="images/chocoflan1.webp" alt="Mini-Chocoflan">
+                </div>
+                <div class="menu-card-body">
+                    <h3>Mini-Chocoflan</h3>
+                    <p>Delicado flan de chocolate artesanal con crema batida y fruta de temporada.</p>
+                </div>
+                <div class="menu-card-footer">
+                    <span class="price">$10.00</span>
+                    <button class="btn-order-small" onclick="switchView('contacto')">Pedir</button>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="menu-card">
+                <div class="menu-card-img">
+                    <img src="images/IMG-20250805-WA0018.jpg" alt="Pastel de Arándanos">
+                </div>
+                <div class="menu-card-body">
+                    <h3>Pastel de Arándanos</h3>
+                    <p>Bizcocho suave de vainilla intercalado con crema premium y arándanos frescos.</p>
+                </div>
+                <div class="menu-card-footer">
+                    <span class="price">$9.99</span>
+                    <button class="btn-order-small" onclick="switchView('contacto')">Pedir</button>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="menu-card highlight-card">
+                <div class="menu-card-badge gold">Especialidad</div>
+                <div class="menu-card-img">
+                    <img src="images/cooldcake.jpg" alt="Mini-Pastel de Gelatina">
+                </div>
+                <div class="menu-card-body">
+                    <h3>Mini-Pastel de Gelatina y Frutas</h3>
+                    <p>Nuestra especialidad: gelatina artística encapsulada con frutas frescas de temporada.</p>
+                </div>
+                <div class="menu-card-footer">
+                    <span class="price">$45.00</span>
+                    <button class="btn-order-small" onclick="switchView('contacto')">Pedir</button>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="menu-card">
+                <div class="menu-card-badge seasonal">Temporada</div>
+                <div class="menu-card-img">
+                    <img src="images/Principal.webp" alt="Pumpkin Cake">
+                </div>
+                <div class="menu-card-body">
+                    <h3>Pumpkin Cake (Especial de Otoño)</h3>
+                    <p>Edición limitada infusionada con especias cálidas de la estación y cobertura suave.</p>
+                </div>
+                <div class="menu-card-footer">
+                    <span class="price custom-price">Cotizar</span>
+                    <button class="btn-order-small" onclick="switchView('contacto')">Pedir</button>
+                </div>
+            </div>
         </div>
     </div>
-
-                    <div class="process-steps">
-                        <div class="step">
-                            <div class="step-number">01</div>
-                            <div class="step-text">
-                                <h3>Selección de Ingredientes</h3>
-                                <p>Solo utilizamos frutas frescas del día, chocolates finos e ingredientes 100% orgánicos.</p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-number">02</div>
-                            <div class="step-text">
-                                <h3>Diseño y Horneado</h3>
-                                <p>Cada postre se hornea en lotes pequeños para garantizar la máxima frescura y textura perfecta.</p>
-                            </div>
-                        </div>
-                        <div class="step">
-                            <div class="step-number">03</div>
-                            <div class="step-text">
-                                <h3>Decoración a Mano</h3>
-                                <p>Nuestros reposteros decoran cada pieza individualmente, convirtiéndola en algo único.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="testimonials-section">
-                <div class="section-title">
-                    <span>Comunidad Red Rose</span>
-                    <h2>Lo que dicen nuestros clientes</h2>
-                    <div class="divider"></div>
-                </div>
-                <div class="testimonials-container">
-                    <div class="testimonial-card active">
-                        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="comment">"¡El Rose Mousse fue el éxito total en mi cumpleaños! No solo lucía espectacular, el sabor era sutil y nada empalagoso. 10/10 recomendado."</p>
-                        <h4 class="client-name">- María Fernández</h4>
-                    </div>
-                </div>
-            </section>
-
-        </section>
-
-        <section id="menu-view" class="page-view">
-            <div class="section-title">
-                <h2>Nuestro Menú Completo</h2>
-                <p>Explora todas nuestras delicias disponibles para entrega y pedidos personalizados.</p>
-            <img src="images/prueva.webp" alt="Vista del Menú Red Rose Desserts" class="menu-overview-img">
-            </div>
-            </section>
-
-        <section id="nosotros-view" class="page-view">
-            <div class="section-title">
-                <h2>Nuestra Historia</h2>
-                <p>Somos una repostería local comprometida con la creación de momentos dulces inolvidables con ingredientes de la más alta calidad por lo que nuestro producto final es de la mejor calidad posible.</p>
-            </div>
-        </section>
-
-        <section id="contacto-view" class="page-view">
-            <div class="section-title">
-                <h2>Haz tu Pedido</h2>
-                <p>Escríbenos para cotizar pasteles personalizados o mesas de postres.</p>
-            </div>
-        </section>
-
-   <section id="menu-view" class="page-view">
-  <div class="container">
-    <p class="subtitle">NUESTRA CARTA</p>
-    <h2>Menú de Postres</h2>
-
-    <div class="menu-grid">
-      <div class="menu-card">
-        <h3>Mini-Chocoflan</h3>
-        <p>Delicado flan de chocolate con crema batida y fruta de temporada.</p>
-        <span class="price">$10.00</span>
-      </div>
-
-      <div class="menu-card">
-        <h3>Pastel de Arándanos</h3>
-        <p>Bizcocho suave de vainilla intercalado con crema premium y arándanos frescos.</p>
-        <span class="price">$9.99</span>
-      </div>
-
-      <div class="menu-card">
-        <h3>Mini-Pastel de Gelatina y Frutas</h3>
-        <p>Nuestra especialidad: gelatina artística encapsulada con frutas de temporada.</p>
-        <span class="price">$45.00</span>
-      </div>
-
-      <div class="menu-card">
-        <h3>Pumpkin Cake (Especial de Otoño)</h3>
-        <p>Edición limitada infusionada con especias cálidas de la estación.</p>
-        <span class="price">Consultar</span>
-      </div>
-    </div>
-  </div>
 </section>
 
-<!-- VISTA NOSOTROS -->
+<!-- VISTA NOSOTROS (Optimizada) -->
 <section id="nosotros-view" class="page-view">
-  <div class="container">
-    <p class="subtitle">CONOCE RED ROSE DESSERTS</p>
-    <h2>Pasión y Artesanía Dulce</h2>
-    <p class="about-text">
-      En Red Rose Desserts transformamos ingredientes de alta calidad en obras de arte comestibles para tus momentos más especiales. Nos dedicamos a crear postres únicos horneados en pequeños lotes, garantizando la máxima frescura, textura y elegancia en cada detalle.
-    </p>
-
-    <div class="features-grid">
-      <div class="feature-item">
-        <h4>01. Ingredientes Premium</h4>
-        <p>Frutas frescas del día y chocolates finos 100% orgánicos.</p>
-      </div>
-      <div class="feature-item">
-        <h4>02. Horneado Artesanal</h4>
-        <p>Elaborados a mano para conservar un sabor sutil y perfectamente balanceado.</p>
-      </div>
-      <div class="feature-item">
-        <h4>03. Diseño Personalizado</h4>
-        <p>Cada pieza se decora individualmente para adaptarse a la temática de tu evento.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- VISTA CONTACTO -->
-<section id="contacto-view" class="page-view">
-  <div class="container">
-    <p class="subtitle">PONTE EN CONTACTO</p>
-    <h2>Haz tu Pedido o Consulta</h2>
-
-    <div class="contact-wrapper">
-      <div class="contact-info">
-        <h3>Información de Contacto</h3>
-        <p><strong>Horario:</strong> Mar – Dom: 10am – 6pm</p>
-        <p><strong>Teléfono:</strong> (862) 846-4408</p>
-        <p><strong>Email:</strong> redrosedesserts25@gmail.com</p>
-        <p><strong>Ubicación:</strong> Newark, NJ</p>
-      </div>
-
-      <form class="contact-form">
-        <input type="text" placeholder="Tu Nombre" required />
-        <input type="email" placeholder="Tu Correo Electrónico" required />
-        <input type="tel" placeholder="Tu Teléfono" />
-        <textarea rows="4" placeholder="¿Qué postre o evento tienes en mente?" required></textarea>
-        <button type="submit" class="btn-primary">Enviar Mensaje</button>
-      </form>
-    </div>
-  </div>
-</section>
+    <div class="container">
+        <div class="section-title">
+            <span>Conoce Red Rose Desserts</span>
+            <h2>Pasión y Artesanía Dulce</h2>
+            <div class="divider"></div>
+            <p class="about-hero-text">
+                En Red Rose Desserts transformamos ingredientes de alta calidad en obras de arte comestibles para tus momentos más especiales. Nos dedicamos a crear postres únicos horneados en pequeños lotes, garantizando la máxima frescura, textura y elegancia en cada detalle.
+            </p>
+        </div>
         
-
-    </main>
-
-    <footer>
-        <div class="footer-container">
-            <div class="footer-info">
-                <h3>Red Rose Desserts</h3>
-                <p>Artesanía dulce para todos tus eventos.</p>
-                <p><i class="fas fa-clock"></i> Mar–Dom: 10am – 6pm</p>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-header">
+                    <span class="feature-number">01</span>
+                    <i class="fas fa-seedling feature-icon"></i>
+                </div>
+                <h3>Ingredientes Premium</h3>
+                <p>Seleccionamos cuidadosamente frutas frescas del día, harinas finas y chocolates 100% orgánicos para garantizar un sabor auténtico.</p>
             </div>
-            <div class="footer-contact">
-                <p><i class="fas fa-phone"></i> (862) 846-4408</p>
-                <p><i class="fas fa-envelope"></i> redrosedesserts25@gmail.com</p>
-                <p><i class="fas fa-map-marker-alt"></i> Newark, NJ</p>
+
+            <div class="feature-card">
+                <div class="feature-header">
+                    <span class="feature-number">02</span>
+                    <i class="fas fa-bread-slice feature-icon"></i>
+                </div>
+                <h3>Horneado Artesanal</h3>
+                <p>Elaborados pacientemente a mano en lotes reducidos para conservar un sabor sutil, balanceado y la textura esponjosa perfecta.</p>
             </div>
-            <div class="footer-socials">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
+
+            <div class="feature-card">
+                <div class="feature-header">
+                    <span class="feature-number">03</span>
+                    <i class="fas fa-paint-brush feature-icon"></i>
+                </div>
+                <h3>Diseño Personalizado</h3>
+                <p>Cada pieza se decora individualmente como una obra de arte única, adaptada al estilo, colores y temática de tu evento especial.</p>
             </div>
         </div>
-        <div class="footer-bottom">
-            &copy; 2026 Red Rose Desserts. Todos los derechos reservados.
-        </div>
-    </footer>
+    </div>
+</section>
 
-    <script src="script.js" defer></script>
+    <!-- VISTA CONTACTO (Unificada) -->
+<section id="contacto-view" class="page-view">
+    <div class="container">
+        <div class="section-title">
+            <span>Ponte en contacto</span>
+            <h2>Haz tu Pedido o Consulta</h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="contact-wrapper">
+            <!-- Tarjeta de Información de Contacto -->
+            <div class="contact-info-card">
+                <h3>Información de Contacto</h3>
+                <p class="contact-subtitle">Escríbenos o visítanos para cotizar pasteles personalizados y mesas de postres.</p>
+
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Horario</h4>
+                            <p>Martes a Domingo: 10:00 AM – 6:00 PM</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Teléfono</h4>
+                            <p><a href="tel:8628464408">(862) 846-4408</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Correo Electrónico</h4>
+                            <p><a href="mailto:redrosedesserts25@gmail.com">redrosedesserts25@gmail.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Ubicación</h4>
+                            <p>Newark, New Jersey</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulario de Contacto -->
+            <form class="contact-form">
+                <h3>Envíanos un Mensaje</h3>
+                <div class="form-group">
+                    <input type="text" placeholder="Tu Nombre Completo" required />
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Tu Correo Electrónico" required />
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="Tu Teléfono" />
+                </div>
+                <div class="form-group">
+                    <textarea rows="4" placeholder="¿Qué postre o evento tienes en mente?" required></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Enviar Mensaje</button>
+            </form>
+        </div>
+    </div>
+</section>
+</main>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-info">
+            <h3>Red Rose Desserts</h3>
+            <p>Artesanía dulce para todos tus eventos.</p>
+            <p><i class="fas fa-clock"></i> Mar–Dom: 10am – 6pm</p>
+        </div>
+        <div class="footer-contact">
+            <p><i class="fas fa-phone"></i> (862) 846-4408</p>
+            <p><i class="fas fa-envelope"></i> redrosedesserts25@gmail.com</p>
+            <p><i class="fas fa-map-marker-alt"></i> Newark, NJ</p>
+        </div>
+        <div class="footer-socials">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2026 Red Rose Desserts. Todos los derechos reservados.
+    </div>
+</footer>
+
+<script src="script.js" defer></script>
 </body>
 </html>

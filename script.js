@@ -1,7 +1,3 @@
-
-
-JavaScript
-// Arreglo interactivo con los comentarios de los clientes
 const testimonials = [
     {
         name: "- María Fernández",
@@ -22,23 +18,18 @@ const testimonials = [
 
 let currentTestimonialIndex = 0;
 
-// Función para rotar los testimonios automáticamente cada 6 segundos
 function rotateTestimonials() {
     const container = document.querySelector('.testimonials-container');
-    
-    // Verificación de seguridad en caso de que el contenedor no exista en la vista actual
     if (!container) return; 
 
     currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
     const current = testimonials[currentTestimonialIndex];
     
-    // Generación de estrellas dinámicas
     let starsHtml = '';
     for(let i = 0; i < current.stars; i++) {
         starsHtml += '<i class="fas fa-star"></i>';
     }
 
-    // Cambiar el HTML con una pequeña animación de transición rápida
     container.style.opacity = 0;
     setTimeout(() => {
         container.innerHTML = `
@@ -52,23 +43,18 @@ function rotateTestimonials() {
     }, 300);
 }
 
-// Iniciar rotación automatizada
 setInterval(rotateTestimonials, 6000);
 
-
-// SISTEMA DE NAVEGACIÓN "SINGLE PAGE APPLICATION" (SPA)
+// NAVEGACIÓN SPA
 function switchView(targetViewId) {
-    // Desactivar todas las vistas
     const views = document.querySelectorAll('.page-view');
     views.forEach(view => view.classList.remove('active'));
 
-    // Activar la vista seleccionada
     const targetView = document.getElementById(`${targetViewId}-view`);
     if (targetView) {
         targetView.classList.add('active');
     }
 
-    // Actualizar el estado activo en los links de navegación
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         link.classList.remove('active');
@@ -77,47 +63,39 @@ function switchView(targetViewId) {
         }
     });
 
-    // Desplazar suavemente hacia arriba al cambiar de sección
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-
-// INICIALIZACIÓN DE EVENTOS (Asegúrate de que vaya al final de tu script.js)
+// INICIALIZACIÓN DEL DOM
 document.addEventListener('DOMContentLoaded', () => {
-    
     const navLinks = document.querySelectorAll('.nav-link');
     const menuToggle = document.getElementById('mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
 
-    // 1. Asignar los eventos de clic a la barra de navegación para SPA
+    // Asignar eventos SPA a los enlaces de la barra
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const target = link.getAttribute('data-target');
-            switchView(target);
+            if (target) switchView(target);
         });
     });
 
-
-
-    // 2. CONTROL DEL MENÚ HAMBURGUESA
+    // CONTROL DEL MENÚ HAMBURGUESA
     if (menuToggle && navMenu) {
-        // Abre y cierra el menú al hacer clic en el botón
         menuToggle.addEventListener('click', (e) => {
-            e.stopPropagation(); // Evita que el clic se propague
-            navMenu.classList.toggle('mobile-active');
+            e.stopPropagation();
+            const isOpen = navMenu.classList.toggle('mobile-active');
             
-            // Cambia el icono de barras (☰) a una equis (✕)
             const icon = menuToggle.querySelector('i');
-            if (navMenu.classList.contains('mobile-active')) {
-                icon.className = 'fas fa-times';
-            } else {
-                icon.className = 'fas fa-bars';
+            if (icon) {
+                icon.className = isOpen ? 'fas fa-times' : 'fas fa-bars';
             }
         });
 
-        // Cierra el menú automáticamente si el usuario hace clic en cualquier enlace
-        navLinks.forEach(link => {
+        // Cierra el menú al presionar cualquier enlace móvil
+        const allMobileLinks = navMenu.querySelectorAll('a');
+        allMobileLinks.forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('mobile-active');
                 const icon = menuToggle.querySelector('i');
@@ -125,12 +103,14 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Cierra el menú si hacen clic en cualquier parte fuera de él
+        // Cierra el menú al hacer clic fuera
         document.addEventListener('click', (e) => {
             if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
-                navMenu.classList.remove('mobile-active');
-                const icon = menuToggle.querySelector('i');
-                if (icon) icon.className = 'fas fa-bars';
+                if (navMenu.classList.contains('mobile-active')) {
+                    navMenu.classList.remove('mobile-active');
+                    const icon = menuToggle.querySelector('i');
+                    if (icon) icon.className = 'fas fa-bars';
+                }
             }
         });
     }
