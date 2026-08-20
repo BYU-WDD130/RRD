@@ -17,6 +17,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+  }
+
 body {
     font-family: 'Poppins', sans-serif;
     color: var(--text-dark);
@@ -107,6 +111,10 @@ header {
     font-size: 1.8rem;
     cursor: pointer;
     padding: 5px;
+}
+
+.menu-toggle i {
+    pointer-events: none; /* Evita que el icono intercepte el clic */
 }
 
 .mobile-only-btn {
@@ -336,39 +344,56 @@ header {
 .process-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    gap: 50px;
-    padding: 0 20px;
-    align-items: center;
+    padding: 2rem 1rem;
 }
 
 .process-video {
     position: relative;
-    border-radius: 15px;
+    width: 100%;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 10px 20px var(--shadow);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    background-color: #000;
+    aspect-ratio: 4 / 3;
 }
 
-.process-video img {
+.process-video video {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
+    border-radius: 16px;
 }
 
 .play-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(107, 29, 47, 0.4);
+    background: rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--white);
-    font-size: 3rem;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background 0.3s ease;
+    pointer-events: none;
 }
 
-.play-overlay:hover { background: rgba(107, 29, 47, 0.6); }
+.play-overlay:hover {
+    background: rgba(0, 0, 0, 0.35);
+}
+
+.play-overlay i {
+    display: none; 
+}
+
+.play-overlay:hover i {
+    transform: scale(1.1);
+    background-color: #5c061c;
+    color: #ffffff;
+}
 
 .step {
     display: flex;
@@ -446,79 +471,8 @@ footer {
     color: #888;
 }
 
-/* Contenedor principal para la cuadrícula (Grid Layout) */
-.process-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-}
-
-/* Contenedor del video */
-.process-video {
-    position: relative;
-    width: 100%;
-    border-radius: 16px; /* Mismo radio de borde del sitio */
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Sombra idéntica a las tarjetas */
-    background-color: #000;
-    aspect-ratio: 4 / 3; /* Mantiene la proporción de la imagen original */
-}
-
-/* Ajuste del elemento <video> */
-.process-video video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    border-radius: 16px;
-}
-
-/* Capa del botón Play (Overlay) */
-.play-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    pointer-events: none;
-}
-
-.play-overlay:hover {
-    background: rgba(0, 0, 0, 0.35);
-}
-
-/* Icono de Play estilizado */
-.play-overlay i {
-    display: none; 
-
-}
-
-.play-overlay:hover i {
-    transform: scale(1.1);
-    background-color: #5c061c;
-    color: #ffffff;
-}
-
-/* Adaptación para pantallas móviles */
-@media (max-width: 768px) {
-    .process-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-}
-
 /* ==========================================================================
-   DISEÑO RESPONSIVE Y MÓVIL (Totalmente Corregido)
+   DISEÑO RESPONSIVE Y MÓVIL (Corregido y Optimizado)
    ========================================================================== */
 @media (max-width: 768px) {
     header {
@@ -538,7 +492,6 @@ footer {
         z-index: 1001;
     }
 
-    /* Ocultamos el botón lateral de escritorio */
     .nav-actions {
         display: none !important;
     }
@@ -552,29 +505,27 @@ footer {
         background-color: var(--white);
         box-shadow: 0 10px 15px rgba(0,0,0,0.1);
         
-        /* Uso forzado de Flexbox en columna para móviles */
-        display: flex !important;
+        display: none; /* Oculto por defecto */
         flex-direction: column !important;
         align-items: center !important;
         gap: 0;
         padding: 20px 0;
         
-        /* Estado inicial invisible para la animación */
         opacity: 0;
         visibility: hidden;
-        transform: translateY(-20px);
-        transition: all 0.4s ease-in-out;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
         z-index: 999;
     }
 
-    /* Clase inyectada dinámicamente por JavaScript */
+    /* Activación del menú mediante la clase inyectada por JS */
     .nav-menu.mobile-active {
+        display: flex !important;
         opacity: 1 !important;
         visibility: visible !important;
         transform: translateY(0) !important;
     }
 
-    /* Links adaptados para pantallas táctiles */
     .nav-menu a {
         margin: 0;
         font-size: 1.2rem;
@@ -584,7 +535,6 @@ footer {
         display: block;
     }
 
-    /* Botón interno exclusivo de la vista móvil */
     .mobile-only-btn {
         display: block !important;
         width: 80% !important;
@@ -592,7 +542,6 @@ footer {
         text-align: center;
     }
 
-    /* Rediseño Adaptable del Resto de Componentes */
     .hero, .process-container { 
         grid-template-columns: 1fr; 
         text-align: center; 

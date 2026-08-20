@@ -23,15 +23,15 @@
         </button>
 
         <nav class="nav-menu">
-            <a href="#" class="nav-link active" data-target="home">Inicio</a>
-            <a href="#" class="nav-link" data-target="menu">Menú</a>
-            <a href="#" class="nav-link" data-target="nosotros">Nosotros</a>
-            <a href="#" class="nav-link" data-target="contacto">Contacto</a>
-            <a href="#contacto" class="btn-order mobile-only-btn" onclick="switchView('contacto')">Pedir Ahora</a>
+<a href="#" class="nav-link active" data-target="home" onclick="switchView('home')">Inicio</a>
+    <a href="#" class="nav-link" data-target="menu" onclick="switchView('menu')">Menú</a>
+    <a href="#" class="nav-link" data-target="nosotros" onclick="switchView('nosotros')">Nosotros</a>
+    <a href="#" class="nav-link" data-target="contacto" onclick="switchView('contacto')">Contacto</a>
+            <a href="#" class="btn-order mobile-only-btn" onclick="switchView('contacto')">Pedir Ahora</a>
         </nav>
         
         <div class="nav-actions">
-            <a href="#contacto" class="btn-order">Pedir Ahora</a>
+            <a href="#" class="btn-order" onclick="switchView('contacto')">Pedir Ahora</a>
         </div>
     </div>
 </header>
@@ -161,13 +161,14 @@
             <div class="section-title">
                 <h2>Nuestro Menú Completo</h2>
                 <p>Explora todas nuestras delicias disponibles para entrega y pedidos personalizados.</p>
+            <img src="images/prueva.webp" alt="Vista del Menú Red Rose Desserts" class="menu-overview-img">
             </div>
             </section>
 
         <section id="nosotros-view" class="page-view">
             <div class="section-title">
                 <h2>Nuestra Historia</h2>
-                <p>Somos una repostería local comprometida con la creación de momentos dulces inolvidables.</p>
+                <p>Somos una repostería local comprometida con la creación de momentos dulces inolvidables con ingredientes de la más alta calidad por lo que nuestro producto final es de la mejor calidad posible.</p>
             </div>
         </section>
 
@@ -177,6 +178,93 @@
                 <p>Escríbenos para cotizar pasteles personalizados o mesas de postres.</p>
             </div>
         </section>
+
+   <section id="menu-view" class="page-view">
+  <div class="container">
+    <p class="subtitle">NUESTRA CARTA</p>
+    <h2>Menú de Postres</h2>
+
+    <div class="menu-grid">
+      <div class="menu-card">
+        <h3>Mini-Chocoflan</h3>
+        <p>Delicado flan de chocolate con crema batida y fruta de temporada.</p>
+        <span class="price">$10.00</span>
+      </div>
+
+      <div class="menu-card">
+        <h3>Pastel de Arándanos</h3>
+        <p>Bizcocho suave de vainilla intercalado con crema premium y arándanos frescos.</p>
+        <span class="price">$9.99</span>
+      </div>
+
+      <div class="menu-card">
+        <h3>Mini-Pastel de Gelatina y Frutas</h3>
+        <p>Nuestra especialidad: gelatina artística encapsulada con frutas de temporada.</p>
+        <span class="price">$45.00</span>
+      </div>
+
+      <div class="menu-card">
+        <h3>Pumpkin Cake (Especial de Otoño)</h3>
+        <p>Edición limitada infusionada con especias cálidas de la estación.</p>
+        <span class="price">Consultar</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISTA NOSOTROS -->
+<section id="nosotros-view" class="page-view">
+  <div class="container">
+    <p class="subtitle">CONOCE RED ROSE DESSERTS</p>
+    <h2>Pasión y Artesanía Dulce</h2>
+    <p class="about-text">
+      En Red Rose Desserts transformamos ingredientes de alta calidad en obras de arte comestibles para tus momentos más especiales. Nos dedicamos a crear postres únicos horneados en pequeños lotes, garantizando la máxima frescura, textura y elegancia en cada detalle.
+    </p>
+
+    <div class="features-grid">
+      <div class="feature-item">
+        <h4>01. Ingredientes Premium</h4>
+        <p>Frutas frescas del día y chocolates finos 100% orgánicos.</p>
+      </div>
+      <div class="feature-item">
+        <h4>02. Horneado Artesanal</h4>
+        <p>Elaborados a mano para conservar un sabor sutil y perfectamente balanceado.</p>
+      </div>
+      <div class="feature-item">
+        <h4>03. Diseño Personalizado</h4>
+        <p>Cada pieza se decora individualmente para adaptarse a la temática de tu evento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISTA CONTACTO -->
+<section id="contacto-view" class="page-view">
+  <div class="container">
+    <p class="subtitle">PONTE EN CONTACTO</p>
+    <h2>Haz tu Pedido o Consulta</h2>
+
+    <div class="contact-wrapper">
+      <div class="contact-info">
+        <h3>Información de Contacto</h3>
+        <p><strong>Horario:</strong> Mar – Dom: 10am – 6pm</p>
+        <p><strong>Teléfono:</strong> (862) 846-4408</p>
+        <p><strong>Email:</strong> redrosedesserts25@gmail.com</p>
+        <p><strong>Ubicación:</strong> Newark, NJ</p>
+      </div>
+
+      <form class="contact-form">
+        <input type="text" placeholder="Tu Nombre" required />
+        <input type="email" placeholder="Tu Correo Electrónico" required />
+        <input type="tel" placeholder="Tu Teléfono" />
+        <textarea rows="4" placeholder="¿Qué postre o evento tienes en mente?" required></textarea>
+        <button type="submit" class="btn-primary">Enviar Mensaje</button>
+      </form>
+    </div>
+  </div>
+</section>
+        
+
     </main>
 
     <footer>
