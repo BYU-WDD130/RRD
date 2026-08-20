@@ -115,3 +115,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+document.querySelector('.contact-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const phone = '18628464408'; // Número tomado de la página (código de país + número)
+
+    const inputs = this.querySelectorAll('input, textarea');
+    const name = inputs[0].value.trim();
+    const email = inputs[1].value.trim();
+    const userPhone = inputs[2].value.trim();
+    const message = inputs[3].value.trim();
+
+    const text = `*Nuevo mensaje de contacto*\n\n` +
+                 `*Nombre:* ${name}\n` +
+                 `*Correo:* ${email}\n` +
+                 `*Teléfono:* ${userPhone || 'No proporcionado'}\n` +
+                 `*Consulta:* ${message}`;
+
+    const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+
+    window.open(whatsappUrl, '_blank');
+});
