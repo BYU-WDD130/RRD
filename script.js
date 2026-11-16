@@ -1,17 +1,17 @@
 const testimonials = [
     {
-        name: "- María Fernández",
-        comment: '"¡El Rose Mousse fue el éxito total en mi cumpleaños! No solo lucía espectacular, el sabor era sutil y nada empalagoso. 10/10 recomendado."',
+        name: "- Morgan F.",
+        comment: '"The Rose Mousse was an absolute hit at my birthday! Not only did it look spectacular, the taste was subtle and not overly sweet. 10/10 recommended."',
         stars: 5
     },
     {
         name: "- Carlos Mendoza",
-        comment: '"Las gelatinas artísticas (Jelly Fruit Cake) son de otro planeta. A mi familia le encantó el diseño de flores tridimensionales."',
+        comment: '"The artistic gelatin cakes (Jelly Fruit Cake) are out of this world. My family loved the three-dimensional flower design."',
         stars: 5
     },
     {
-        name: "- Laura Restrepo",
-        comment: '"Excelente servicio al cliente y los bollitos de crema son deliciosos y súper esponjosos. Mi cafetería favorita desde ahora."',
+        name: "- Jasmin Lourance",
+        comment: '"Excellent customer service and the cream puffs are delicious and super fluffy. My favorite cafe from now on."',
         stars: 5
     }
 ];
@@ -45,7 +45,7 @@ function rotateTestimonials() {
 
 setInterval(rotateTestimonials, 6000);
 
-// NAVEGACIÓN SPA
+// SPA NAVIGATION
 function switchView(targetViewId) {
     const views = document.querySelectorAll('.page-view');
     views.forEach(view => view.classList.remove('active'));
@@ -66,13 +66,13 @@ function switchView(targetViewId) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// INICIALIZACIÓN DEL DOM
+// DOM INITIALIZATION
 document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
     const menuToggle = document.getElementById('mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
 
-    // Asignar eventos SPA a los enlaces de la barra
+    // Assign SPA events to navbar links
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // CONTROL DEL MENÚ HAMBURGUESA
+    // MOBILE MENU CONTROL
     if (menuToggle && navMenu) {
         menuToggle.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Cierra el menú al presionar cualquier enlace móvil
+        // Close menu when any mobile link is clicked
         const allMobileLinks = navMenu.querySelectorAll('a');
         allMobileLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Cierra el menú al hacer clic fuera
+        // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
                 if (navMenu.classList.contains('mobile-active')) {
@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.querySelector('.contact-form').addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const phone = '18628464408'; // Número tomado de la página (código de país + número)
+    const phone = '18628464408'; // Number taken from the page (country code + number)
 
     const inputs = this.querySelectorAll('input, textarea');
     const name = inputs[0].value.trim();
@@ -127,11 +127,11 @@ document.querySelector('.contact-form').addEventListener('submit', function (e) 
     const userPhone = inputs[2].value.trim();
     const message = inputs[3].value.trim();
 
-    const text = `*Nuevo mensaje de contacto*\n\n` +
-                 `*Nombre:* ${name}\n` +
-                 `*Correo:* ${email}\n` +
-                 `*Teléfono:* ${userPhone || 'No proporcionado'}\n` +
-                 `*Consulta:* ${message}`;
+    const text = `*New contact message*\n\n` +
+                 `*Name:* ${name}\n` +
+                 `*Email:* ${email}\n` +
+                 `*Phone:* ${userPhone || 'Not provided'}\n` +
+                 `*Inquiry:* ${message}`;
 
     const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
 
