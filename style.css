@@ -16,7 +16,7 @@
 
 html {
     scroll-behavior: smooth;
-  }
+}
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -30,7 +30,7 @@ h1, h2, h3, .logo {
 }
 
 /* ==========================================================================
-   HEADER & NAVBAR (Escritorio por defecto)
+   HEADER & NAVBAR
    ========================================================================== */
 header {
     background-color: var(--white);
@@ -67,7 +67,6 @@ header {
     transform: scale(1.05);
 }
 
-/* Contenedor de enlaces en Escritorio */
 .nav-menu {
     display: flex;
     align-items: center;
@@ -99,7 +98,6 @@ header {
     background-color: var(--secondary-color);
 }
 
-/* Botón hamburguesa oculto en pantallas grandes */
 .menu-toggle {
     display: none;
     background: none;
@@ -111,7 +109,7 @@ header {
 }
 
 .menu-toggle i {
-    pointer-events: none; /* Evita que el icono intercepte el clic */
+    pointer-events: none;
 }
 
 .mobile-only-btn {
@@ -243,8 +241,10 @@ header {
 .product-card {
     background: var(--white);
     border-radius: 15px;
-    padding: 20px;
-    text-align: center;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 380px;
     position: relative;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     transition: transform 0.3s;
@@ -256,23 +256,104 @@ header {
 
 .product-card img {
     width: 100%;
-    height: 250px;
+    height: 75%;
     object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 15px;
+    cursor: zoom-in;
+    transition: opacity 0.2s ease;
+}
+
+.product-card img:hover {
+    opacity: 0.95;
 }
 
 .product-card h3 {
+    height: 25%;
     color: var(--primary-color);
-    margin-bottom: 10px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+    font-size: 1.1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .product-card .price {
-    display: block;
-    color: var(--accent-color);
-    font-weight: 600;
-    font-size: 1.2rem;
-    margin-top: 10px;
+    display: none; 
+}
+
+/* ==========================================================================
+   LIGHTBOX MODAL
+   ========================================================================== */
+.lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(15, 15, 15, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    padding: 20px;
+}
+
+.lightbox-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 95vw;
+    max-height: 95vh;
+}
+
+.lightbox-content img {
+    max-width: 90vw;
+    max-height: 82vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+    cursor: zoom-out;
+}
+
+.lightbox-caption {
+    color: #ffffff;
+    font-size: 1.05rem;
+    margin-top: 12px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.lightbox-close {
+    position: fixed;
+    top: 20px;
+    right: 28px;
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: #ffffff;
+    font-size: 2rem;
+    line-height: 1;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+}
+
+.lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.3);
 }
 
 .badge {
@@ -378,20 +459,6 @@ header {
     pointer-events: none;
 }
 
-.play-overlay:hover {
-    background: rgba(0, 0, 0, 0.35);
-}
-
-.play-overlay i {
-    display: none; 
-}
-
-.play-overlay:hover i {
-    transform: scale(1.1);
-    background-color: #5c061c;
-    color: #ffffff;
-}
-
 .step {
     display: flex;
     margin-bottom: 30px;
@@ -410,7 +477,7 @@ header {
     margin-bottom: 5px;
 }
 
-/* Testimonios / Comentarios */
+/* Testimonios */
 .testimonials-section {
     max-width: 800px;
     margin: 80px auto;
@@ -429,9 +496,7 @@ header {
 .comment { font-style: italic; font-size: 1.2rem; margin-bottom: 20px; }
 .client-name { color: var(--primary-color); }
 
-/* ==========================================================================
-   FOOTER
-   ========================================================================== */
+/* FOOTER */
 footer {
     background-color: var(--text-dark);
     color: var(--white);
@@ -468,8 +533,7 @@ footer {
     color: #888;
 }
 
-
-
+/* Contacto y Vistas */
 .contact-wrapper {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
@@ -480,7 +544,6 @@ footer {
     align-items: start;
 }
 
-/* Tarjeta de Información */
 .contact-info-card {
     background: var(--bg-light);
     border: 1px solid rgba(107, 29, 47, 0.1);
@@ -555,7 +618,6 @@ footer {
     color: var(--primary-color);
 }
 
-/* Formulario */
 .contact-form {
     background: var(--white);
     padding: 40px 30px;
@@ -599,23 +661,23 @@ footer {
     border-radius: 25px;
 }
 
-
-#nosotros-view .container {
+#nosotros-view .container,
+#menu-view .container {
     max-width: 1100px;
     margin: 0 auto;
     padding: 20px 20px 60px;
 }
 
-/* Texto introductorio */
-.about-hero-text {
+.about-hero-text,
+.menu-intro-text {
     max-width: 750px;
     margin: 20px auto 0;
     font-size: 1.05rem;
     line-height: 1.7;
     color: #555;
+    text-align: center;
 }
 
-/* Grilla de características */
 .features-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -623,13 +685,11 @@ footer {
     margin-top: 50px;
 }
 
-/* Tarjetas individuales */
 .feature-card {
     background: var(--bg-light);
     border: 1px solid rgba(107, 29, 47, 0.08);
     border-radius: 20px;
     padding: 35px 25px;
-    position: relative;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     display: flex;
@@ -642,7 +702,6 @@ footer {
     border-color: var(--accent-color);
 }
 
-/* Encabezado con número e icono */
 .feature-header {
     display: flex;
     justify-content: space-between;
@@ -672,7 +731,6 @@ footer {
     border: 1px solid var(--accent-color);
 }
 
-/* Título y descripción */
 .feature-card h3 {
     font-size: 1.3rem;
     color: var(--primary-color);
@@ -685,19 +743,6 @@ footer {
     line-height: 1.6;
 }
 
-#menu-view .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px 20px 60px;
-}
-
-.menu-intro-text {
-    max-width: 700px;
-    margin: 15px auto 0;
-    font-size: 1.05rem;
-    color: #555;
-}
-
 /* Grilla del Menú */
 .menu-grid {
     display: grid;
@@ -706,18 +751,18 @@ footer {
     margin-top: 45px;
 }
 
-/* Tarjeta individual */
 .menu-card {
     background: var(--white);
     border: 1px solid rgba(107, 29, 47, 0.1);
     border-radius: 18px;
-    padding: 30px 25px 25px;
+    padding: 20px;
     position: relative;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 450px;
 }
 
 .menu-card:hover {
@@ -725,13 +770,11 @@ footer {
     box-shadow: 0 12px 25px rgba(107, 29, 47, 0.12);
 }
 
-/* Tarjeta destacada */
 .menu-card.highlight-card {
     background: var(--bg-light);
     border-color: var(--accent-color);
 }
 
-/* Insignias / Badges */
 .menu-card-badge {
     position: absolute;
     top: -12px;
@@ -747,44 +790,6 @@ footer {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.menu-card-img {
-    width: 100%;
-    height: 160px; /* Altura estándar fija para todas las imágenes */
-    border-radius: 12px;
-    overflow: hidden;
-    margin-bottom: 15px;
-    border: 1px solid rgba(107, 29, 47, 0.1); /* Marco sutil acorde a la marca */
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.03);
-    background-color: var(--bg-light);
-}
-
-.menu-card-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ajusta la imagen sin deformarla ni estirarla */
-    display: block;
-    transition: transform 0.4s ease;
-}
-
-/* Efecto Zoom al pasar el cursor */
-.menu-card:hover .menu-card-img img {
-    transform: scale(1.08);
-}
-
-/* Ajustes de alineación de la tarjeta */
-.menu-card {
-    background: var(--white);
-    border: 1px solid rgba(107, 29, 47, 0.1);
-    border-radius: 18px;
-    padding: 20px;
-    position: relative;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
 .menu-card-badge.gold {
     background-color: var(--accent-color);
     color: var(--text-dark);
@@ -794,7 +799,25 @@ footer {
     background-color: var(--secondary-color);
 }
 
-/* Contenido */
+.menu-card-img {
+    height: 55%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-fit: contain;
+    display: block;
+    cursor: zoom-in;
+    transition: transform 0.25s ease;
+}
+
 .menu-card-body h3 {
     font-size: 1.3rem;
     color: var(--primary-color);
@@ -806,10 +829,9 @@ footer {
     font-size: 0.95rem;
     color: #666;
     line-height: 1.5;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-/* Pie de tarjeta */
 .menu-card-footer {
     display: flex;
     justify-content: space-between;
@@ -848,45 +870,17 @@ footer {
 
 
 
-/* Adaptación Móvil */
-@media (max-width: 768px) {
-    .menu-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
-}
 
-/* Adaptación móvil */
+/* ==========================================================================
+   DISEÑO RESPONSIVE Y MÓVIL
+   ========================================================================== */
 @media (max-width: 900px) {
     .features-grid {
         grid-template-columns: 1fr;
         gap: 25px;
     }
-
-    .feature-card {
-        padding: 30px 20px;
-    }
 }
 
-
-/* Adaptación para pantallas móviles */
-@media (max-width: 768px) {
-    .contact-wrapper {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    
-    .contact-info-card, 
-    .contact-form {
-        padding: 30px 20px;
-    }
-}
-
-
-
-/* ==========================================================================
-   DISEÑO RESPONSIVE Y MÓVIL (Corregido y Optimizado)
-   ========================================================================== */
 @media (max-width: 768px) {
     header {
         position: relative; 
@@ -909,7 +903,6 @@ footer {
         display: none !important;
     }
 
-    /* Menú móvil desplegable vertical */
     .nav-menu {
         position: absolute;
         top: 100%;
@@ -917,13 +910,11 @@ footer {
         width: 100%;
         background-color: var(--white);
         box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-        
-        display: none; /* Oculto por defecto */
+        display: none;
         flex-direction: column !important;
         align-items: center !important;
         gap: 0;
         padding: 20px 0;
-        
         opacity: 0;
         visibility: hidden;
         transform: translateY(-10px);
@@ -931,7 +922,6 @@ footer {
         z-index: 999;
     }
 
-    /* Activación del menú mediante la clase inyectada por JS */
     .nav-menu.mobile-active {
         display: flex !important;
         opacity: 1 !important;
@@ -955,7 +945,7 @@ footer {
         text-align: center;
     }
 
-    .hero, .process-container { 
+    .hero, .process-container, .contact-wrapper { 
         grid-template-columns: 1fr; 
         text-align: center; 
         padding: 40px 20px;
@@ -971,8 +961,8 @@ footer {
         margin: 0 auto;
     }
 
-    .grid-products {
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    .grid-products, .menu-grid {
+        grid-template-columns: 1fr;
         padding: 0 15px;
     }
 
@@ -983,4 +973,9 @@ footer {
 
     .seasonal-content h2 { font-size: 2rem; }
     .step { text-align: left; }
+    
+    .contact-info-card, 
+    .contact-form {
+        padding: 30px 20px;
+    }
 }

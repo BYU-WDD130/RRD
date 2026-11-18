@@ -81,6 +81,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+
+    
     // MOBILE MENU CONTROL
     if (menuToggle && navMenu) {
         menuToggle.addEventListener('click', (e) => {
